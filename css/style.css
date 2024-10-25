@@ -26,6 +26,11 @@ header {
     align-items: center;
 }
 
+.nav_links{
+    display: flex;
+    flex-direction: column;
+}
+
 .nav_item a:visited {
     color: blue;
 }
@@ -131,6 +136,7 @@ header {
         justify-content: center;
         flex-wrap: nowrap;
         align-items: flex-end;
+        margin: 0 0 50px 0;
     }
 
     .card{
