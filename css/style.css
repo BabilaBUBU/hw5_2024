@@ -97,7 +97,9 @@ header {
 }
 
 @media all and (prefers-reduced-motion: reduce){
-
+    #logo {
+        animation: none;
+    }
 }
 
 @media print{
