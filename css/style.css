@@ -112,17 +112,17 @@ header {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-    }
-
-    nav{
-        display: flex;
-        flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .nav_links{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    .nav_item{
+        margin: 0px 81px;
     }
 
     .pricing{
