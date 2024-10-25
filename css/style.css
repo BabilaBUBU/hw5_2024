@@ -103,5 +103,40 @@ header {
 }
 
 @media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+    }
 
+    header{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    .card{
+        flex-basis: 325px;
+        border: 2px solid #45ADDD;
+    }
+
+    
 }
