@@ -1,3 +1,4 @@
+/* Create the animation of logo */
 @keyframes logoAnimation {
     0% {
         width: 25px;
@@ -9,16 +10,24 @@
     }
 }
 
+/* make sure the duration of the animation will be 5s
+forwards keeps the animation's stage to the previous one, 
+so it will only appear once the web is loaded*/
 #logo {
     animation: logoAnimation 5s forwards;
 }
 
+/* styling of body's font and background
+as image will cover the background color, so when the image is not loaded, 
+the color will be a backup */
 body{
     font-family: "Poppins", sans-serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
 
+/* the logo and nav in the header is stacked, so direction should be column, 
+also the content is centered */
 header {
     display: flex;
     flex-direction: column;
@@ -26,15 +35,20 @@ header {
     align-items: center;
 }
 
+/* make sure the li items within the nav_links class is also shown in columns */
 .nav_links{
     display: flex;
     flex-direction: column;
 }
 
-.nav_item a:visited {
+
+/* set the link and the visited link's color to be the same */
+.nav_item a:visited, 
+.nav_item a:link{
     color: blue;
 }
 
+/* styling of the card headers' background, border, padding, and border radius */
 .card > header{
     background-color: #288088;
     border: 2px solid #45ADAD;
@@ -43,6 +57,8 @@ header {
     border-top-right-radius: 50px;
 }
 
+/* ser the card's border radius to be the same as its header's to that there will not be a white background.
+content of cards displayed in flex along column, also to activate the flex-basis property */
 .card{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -51,6 +67,8 @@ header {
     flex-basis: 450px;
 }
 
+/* let the cards to be place along the row, then wrap them to different columns, 
+so that each card can have the same width. */
 .pricing{
     display: flex;
     flex-direction: row;
@@ -58,12 +76,15 @@ header {
     flex-wrap: wrap;
 }
 
+/* styling of images as a child of gallery class */
 .gallery img{
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
+/* display the images in the gallery in flex so that the display can be adjusted according to the width of screen.
+images placed along the row with wrapping, also centered towards to middle */
 .gallery{
     display: flex;
     flex-direction: row;
@@ -71,88 +92,103 @@ header {
     justify-content: center;
 }
 
+/* start the media query for screen width larger than 900px */
 @media screen and (min-width: 900px){
+    /* logo and nav are in the same row, so flex-direction should be row instead of column. 
+    Also use space-between to make sure the logo and nav are placed on left and right as far as possible.*/
     header{
         flex-direction: row;
         justify-content: space-between;
     }
 
+    /* nav links are in the same row, so flex-direction should be row instead of column.
+    also use space between to make sure the nav expends to right as far as possible */
     .nav_links{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
+    /* styling of pricing class so that the cards can be placed in the same row. */
     .pricing{
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; /* center the cards horizontally */
+        align-items: center; /* center each item vertically as a whole, to that no extra space will appear for shorter cards. */
     }
 
+    /* adjust the size of cards to 275px */
     .card{
         flex-basis: 275px;
     }
 
+    /* position: sticky to enable the header to be shown when scrolled */
     body > header{
         position: sticky;
-        top: 0;
-        z-index: 100;
+        top: 0; /* let the header to be on the top most position always */
+        z-index: 100; /* let the header not to be covered by any content */
     }
 }
 
+/* media query for motion-reduced mode */
 @media all and (prefers-reduced-motion: reduce){
+    /* disable the animation */
     #logo {
         animation: none;
     }
 }
 
+/* media query for print mode */
 @media print{
+    /* adjust the font and disable the background image */
     body{
         font-family: Arial, Helvetica;
         background-image: none;
     }
 
+    /* stack the logo and nav in columns */
     header{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        justify-content: space-evenly;
     }
 
+    /* make the nav bar expand through the page to that the justify-content can have space to work on */
     nav{
         width: 100%;
     }
 
+    /* display the links in row, also with space between them and the edges */
     .nav_links{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
 
-    /* .nav_item{
-        margin: 0px 81px;
-    } */
-
+    /* display the three cards in a row together */
     .pricing{
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        flex-wrap: nowrap;
-        align-items: flex-end;
-        margin: 0 0 50px 0;
+        justify-content: center; /* center the cards horizontally */
+        flex-wrap: nowrap; /* let all three cards show in the same line */
+        align-items: flex-end; /* align the cards to the bottom */
+        margin: 0 0 50px 0; /* add margin to the bottom of cards as shown in the example */
     }
 
+    /* adjust the size of cards to 325px, 
+    also add the border */
     .card{
         flex-basis: 325px;
         border: 2px solid #45ADDD;
     }
 
+    /* make the whole gallery disappear, including the title and content */
     #gallery, 
     .gallery{
         display: none;
     }
 
+    /* add thumbup emoji to the end of the second li item in each card */
     .card li:nth-child(2)::after {
         content: "👍";
     }
