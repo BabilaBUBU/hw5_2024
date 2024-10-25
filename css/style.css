@@ -138,5 +138,12 @@ header {
         border: 2px solid #45ADDD;
     }
 
-    
+    #gallery, 
+    .gallery{
+        display: none;
+    }
+
+    .card li:nth-child(2)::after {
+        content: "👍";
+    }
 }
